@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+.artifacts/
+.venv/
+venv/
+
+artifacts/trained_models/
+artifacts/plots/
+
+.ipynb_checkpoints/
