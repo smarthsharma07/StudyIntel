@@ -1,2 +1,18 @@
-# framesforge
-FramesForge is an end-to-end Machine Learning powered platform that predicts gaming performance or PC performance for a given PC configuration, identifies hardware bottlenecks, explains predictions using Explainable AI, and provides upgrade recommendations as per your use case.
+# StudyIntel
+
+Machine Learning-powered Study Intelligence Platform.
+
+## Current Progress
+
+- Data Schema
+- Validation System
+- CSV Logging
+- Data Loading Pipeline
+
+## Upcoming
+
+- Analytics Engine
+- Feature Engineering
+- Regression Models
+- Classification Models
+- SHAP Explainability
