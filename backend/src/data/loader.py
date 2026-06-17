@@ -4,13 +4,17 @@ import pandas as pd
 
 
 def load_study_logs(file_path: str | Path) -> pd.DataFrame:
+    print(f"Loading file: {file_path}")
 
     try:
-        return pd.read_csv(file_path)
+        df = pd.read_csv(file_path)
+
+        print("Loaded successfully!")
+        print(df.shape)
+
+        return df
 
     except FileNotFoundError:
+        print("File not found!")
         return pd.DataFrame()
 
-    except Exception as e:
-        print(f"Error loading study logs: {e}")
-        return pd.DataFrame()
