@@ -80,7 +80,7 @@ print(importance_df)
 
 joblib.dump(
     model,
-    "models/catboost_v1.pkl"
+    "artifacts/catboost_v1.pkl"
 )
 
 print("\nModel Saved")

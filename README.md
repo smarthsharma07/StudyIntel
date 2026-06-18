@@ -60,15 +60,33 @@ Machine Learning-powered Study Intelligence Platform that helps students analyze
 * Day of Week
 * Month
 
-## Upcoming
-
 ### Machine Learning
 
 * Baseline Random Forest Regressor
 * CatBoost Regressor
+* LightGbm Regressor
 * XGBoost Regressor
 * Model Evaluation
 * Hyperparameter Tuning
+Best Performing Model:
+CatBoost Regressor
+R² Score: 0.8879
+RMSE: 0.5355
+
+## Model Benchmarking
+
+The following regression models were evaluated:
+
+| Model | R² Score | RMSE |
+|---------|---------|---------|
+| Random Forest | 0.8753 | 0.5647 |
+| XGBoost | 0.8786 | 0.5572 |
+| LightGBM | 0.8796 | 0.5548 |
+| CatBoost | **0.8879** | **0.5355** |
+
+CatBoost achieved the best overall performance and was selected as the final model for StudyIntel v1.
+
+## Upcoming
 
 ### Analytics
 
