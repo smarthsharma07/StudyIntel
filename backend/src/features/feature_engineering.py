@@ -88,6 +88,34 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
         df["goal_completion"]
         / df["study_hours"]
     )
+    # PERFORMANCE FEATURES
+
+    df["goal_efficiency"] = (
+        df["goal_completion"]
+        / df["study_hours"]
+    )
+
+    # NEW DERIVED FEATURES
+
+    df["study_sleep_ratio"] = (
+        df["study_hours"]
+        / df["sleep_hours"]
+    )
+
+    df["exercise_study_ratio"] = (
+        df["exercise_minutes"]
+        / df["study_hours"]
+    )
+
+    df["sessions_per_hour"] = (
+        df["study_sessions"]
+        / df["study_hours"]
+    )
+
+    df["average_session_length"] = (
+        df["study_hours"]
+        / df["study_sessions"]
+)
     # =====================================================
     # HANDLE INF VALUES
     # =====================================================
