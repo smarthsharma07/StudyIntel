@@ -6,15 +6,16 @@ Machine Learning-powered Study Intelligence Platform that helps students analyze
 
 ## Overview
 
-StudyIntel is an end-to-end data analytics and machine learning project designed to help students understand how their daily habits affect productivity.
+StudyIntel is an end-to-end Data Analytics and Machine Learning project designed to help students understand how daily habits influence productivity.
 
 The platform combines:
 
 * Study Tracking
-* Analytics & Insights
+* Learning Analytics
 * Productivity Prediction
 * Explainable AI (SHAP)
-* Personalized Learning Analytics
+* Habit Monitoring
+* Personalized Insights
 
 ---
 
@@ -24,7 +25,7 @@ The platform combines:
 
 * Daily Study Tracking
 * Multi-Subject Study Entries
-* Data Validation System
+* Input Validation System
 * SQLite Database Storage
 * CSV Data Export
 
@@ -34,8 +35,8 @@ The platform combines:
 * Weekly Analytics
 * Monthly Analytics
 * Subject Analytics
-* Study Streak Analysis
-* Consistency Tracking
+* Study Streak Tracking
+* Consistency Analysis
 * Productivity Trends
 * Habit Monitoring
 
@@ -44,8 +45,10 @@ The platform combines:
 * Productivity Score Prediction
 * Feature Engineering Pipeline
 * Model Benchmarking
-* Hyperparameter Tuning
-* Explainable AI (Upcoming)
+* Hyperparameter Optimization
+* Model Persistence
+* Inference Pipeline
+* SHAP Explainability
 
 ---
 
@@ -60,9 +63,11 @@ SQLite Database
      ↓
 Analytics Engine
      ↓
-Machine Learning Engine
+Feature Engineering
      ↓
-Prediction & Insights
+CatBoost Model
+     ↓
+Prediction & SHAP Insights
 ```
 
 ---
@@ -97,6 +102,9 @@ Prediction & Insights
 * Train/Test Split
 * Model Benchmarking
 * Hyperparameter Optimization
+* Model Persistence
+* Prediction Pipeline
+* SHAP Explainability
 
 ---
 
@@ -134,6 +142,10 @@ Prediction & Insights
 * Exam Season Indicator
 * Day of Week
 * Month
+* Study-to-Sleep Ratio
+* Exercise-to-Study Ratio
+* Sessions per Hour
+* Average Session Length
 
 ---
 
@@ -157,6 +169,38 @@ Performance:
 
 CatBoost achieved the strongest overall performance and was selected as the production model for StudyIntel v1.
 
+The production model uses CatBoost's native categorical feature handling and supports end-to-end inference without manual categorical encoding.
+
+---
+
+## Explainable AI (SHAP)
+
+StudyIntel includes SHAP-based explainability to provide transparent productivity predictions.
+
+Features:
+
+* Local Prediction Explanations
+* Feature Contribution Analysis
+* Positive Productivity Drivers
+* Negative Productivity Drivers
+* SHAP Validation Across Multiple Productivity Scenarios
+
+Example Insights:
+
+```text
+Predicted Productivity: 7.61
+
+Top Positive Factors
++ Optimal Sleep
++ Low Distractions
++ Task Difficulty
+
+Top Negative Factors
+- Low Energy Level
+- Low Mood Score
+- Low Goal Completion
+```
+
 ---
 
 ## Technology Stack
@@ -174,6 +218,7 @@ CatBoost achieved the strongest overall performance and was selected as the prod
 * CatBoost
 * LightGBM
 * XGBoost
+* SHAP
 
 ### Visualization
 
@@ -186,6 +231,14 @@ CatBoost achieved the strongest overall performance and was selected as the prod
 
 ---
 
+## Dataset Notice
+
+StudyIntel v1 uses a synthetic dataset generated from realistic study-behavior patterns to design, validate, and benchmark the analytics and machine learning pipeline.
+
+Future versions will incorporate real user study logs collected through the platform, enabling periodic retraining and improved prediction quality.
+
+---
+
 ## Roadmap
 
 ### Version 1.0
@@ -193,8 +246,9 @@ CatBoost achieved the strongest overall performance and was selected as the prod
 * Analytics Dashboard
 * Productivity Prediction
 * SQLite Integration
-* Model Deployment
 * SHAP Explainability
+* Streamlit Dashboard
+* Model Deployment
 
 ### Version 1.1
 
@@ -213,21 +267,25 @@ CatBoost achieved the strongest overall performance and was selected as the prod
 
 ## Project Status
 
-**Current Phase:** Analytics Engine Complete ✅
+**Current Phase:** Explainability & Dashboard Development 🚧
 
 ### Completed
 
 * Data Pipeline
 * Database Layer
 * Analytics Engine
-* Regression Model Selection
+* Feature Engineering
+* Model Benchmarking
+* CatBoost Model Selection
+* Model Persistence
+* Prediction Pipeline
+* SHAP Explainability Module
 
 ### In Progress
 
-* Model Persistence
-* Prediction Module
-* SHAP Explainability
+* SHAP Visualizations
 * Streamlit Dashboard
+* Deployment
 
 ---
 
