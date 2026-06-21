@@ -79,6 +79,6 @@ def preprocess_data(
 
     df = handle_missing_values(df)
 
-    df, encoders = encode_categorical_features(df)
+    
 
-    return df, encoders
+    return df

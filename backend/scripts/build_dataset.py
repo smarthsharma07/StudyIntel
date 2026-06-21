@@ -2,6 +2,7 @@
 from src.data.loader import load_study_logs
 from src.features.feature_engineering import engineer_features
 from src.preprocessing import preprocessing
+import joblib
 
 RAW_DATA = r"C:\Users\Smarth Sharma\Desktop\StudyIntel-1\backend\data\raw\study_logs.csv"
 PROCESSED_DATA = r"C:\Users\Smarth Sharma\Desktop\StudyIntel-1\backend\data\processed\studyintel_processed.csv"
@@ -13,7 +14,7 @@ def build_dataset():
 
     df = engineer_features(df)
 
-    df,encoders = preprocessing.preprocess_data(df)
+    df = preprocessing.preprocess_data(df)
     print(type(df))
     print(df)
     df.to_csv(PROCESSED_DATA, index=False)

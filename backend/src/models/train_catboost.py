@@ -18,7 +18,7 @@ if "date" in df.columns:
     df = df.drop(columns=["date"])
 X = df.drop(columns=[TARGET])
 y = df[TARGET]
-
+cat_features = X.select_dtypes(include=["object", "category"]).columns.tolist()
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
@@ -42,6 +42,7 @@ model = CatBoostRegressor(
 model.fit(
     X_train,
     y_train,
+    cat_features=cat_features,
     eval_set=(X_test, y_test)
 )
 
@@ -80,7 +81,7 @@ print(importance_df)
 
 joblib.dump(
     model,
-    "artifacts/catboost_v1.pkl"
+    "C:\\Users\\Smarth Sharma\\Desktop\\StudyIntel-1\\backend\\artifacts\\trained models\\catboost_v1.pkl"
 )
 
 print("\nModel Saved")
