@@ -8,6 +8,11 @@ The system combines **data analytics**, **predictive machine learning**, and **e
 
 ---
 
+## Live Deployed Link:
+You can visit the live project here : https://studyintel.streamlit.app/
+
+---
+
 ##  Features
 
 ###  Productivity Prediction
