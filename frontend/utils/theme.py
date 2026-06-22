@@ -95,12 +95,7 @@ def _dark_overrides(c: dict) -> str:
     background-color: transparent !important;
 }}
 
-/* Header bar */
-[data-testid="stHeader"] {{
-    background-color: transparent !important;
-    background: transparent !important;
-    border-bottom: none !important;
-}}
+/* Header bar left to native Streamlit styling to preserve sidebar functionality */
 
 /* Sidebar */
 section[data-testid="stSidebar"],
@@ -341,32 +336,7 @@ html, body, [class*="css"] {{
     display: none !important;
 }}
 
-/* Style the Streamlit Header to be transparent */
-[data-testid="stHeader"], header {{
-    background-color: transparent !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    border-bottom: none !important;
-}}
-
-/* Ensure the sidebar collapse/expand toggle button and its container are visible and clickable */
-[data-testid="collapsedControl"],
-[data-testid="collapsedControl"] *,
-[data-testid="stSidebarCollapseButton"],
-[data-testid="stBaseButton-headerNoPadding"],
-[data-testid="baseButton-header"],
-header button {{
-    visibility: visible !important;
-}}
-
-/* Ensure toggle button icon matches theme color */
-[data-testid="collapsedControl"] svg,
-[data-testid="stSidebarCollapseButton"] svg,
-[data-testid="stBaseButton-headerNoPadding"] svg,
-header button svg {{
-    fill: {c['text']} !important;
-    color: {c['text']} !important;
-}}
+/* Streamlit Header and Sidebar Toggle kept native to ensure clickability and state management */
 
 section[data-testid="stSidebar"] {{
     background-color: {c['sidebar_bg']} !important;
