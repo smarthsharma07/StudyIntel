@@ -341,13 +341,12 @@ html, body, [class*="css"] {{
     display: none !important;
 }}
 
-/* Style the Streamlit Header to be transparent and non-blocking */
+/* Style the Streamlit Header to be transparent */
 [data-testid="stHeader"], header {{
     background-color: transparent !important;
     background: transparent !important;
     box-shadow: none !important;
     border-bottom: none !important;
-    pointer-events: none !important;
 }}
 
 /* Ensure the sidebar collapse/expand toggle button and its container are visible and clickable */
@@ -358,7 +357,6 @@ html, body, [class*="css"] {{
 [data-testid="baseButton-header"],
 header button {{
     visibility: visible !important;
-    pointer-events: auto !important;
 }}
 
 /* Ensure toggle button icon matches theme color */
@@ -376,7 +374,7 @@ section[data-testid="stSidebar"] {{
     box-shadow: 4px 0 20px {c['shadow_a']};
 }}
 .block-container {{
-    padding-top: 1.5rem !important;
+    padding-top: 3.75rem !important;
     background-color: transparent !important;
 }}
 ::-webkit-scrollbar {{ width: 5px; }}
