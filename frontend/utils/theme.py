@@ -330,11 +330,7 @@ html, body, [class*="css"] {{
     background-color: {c['app_bg']};
 }}
 
-/* Hide Streamlit Toolbar, MainMenu, Footer, Deploy button, and Github icon */
-#MainMenu, footer, [data-testid="stToolbar"], .stAppDeployButton, #GithubIcon {{
-    visibility: hidden !important;
-    display: none !important;
-}}
+/* Streamlit dev menus kept native as requested */
 
 /* Streamlit Header and Sidebar Toggle kept native to ensure clickability and state management */
 
