@@ -37,8 +37,8 @@ catboost_info/
 build/
 dist/
 
-# Streamlit cache
-.streamlit/
+# Streamlit configuration
+.streamlit/secrets.toml
 
 # Test cache
 .pytest_cache/
