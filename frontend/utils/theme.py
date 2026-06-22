@@ -350,17 +350,19 @@ html, body, [class*="css"] {{
     pointer-events: none !important;
 }}
 
-/* Ensure the sidebar collapse/expand toggle button is visible and clickable */
+/* Ensure the sidebar collapse/expand toggle button and its container are visible and clickable */
+[data-testid="collapsedControl"],
+[data-testid="collapsedControl"] *,
 [data-testid="stSidebarCollapseButton"],
 [data-testid="stBaseButton-headerNoPadding"],
 [data-testid="baseButton-header"],
 header button {{
     visibility: visible !important;
-    display: inline-flex !important;
     pointer-events: auto !important;
 }}
 
 /* Ensure toggle button icon matches theme color */
+[data-testid="collapsedControl"] svg,
 [data-testid="stSidebarCollapseButton"] svg,
 [data-testid="stBaseButton-headerNoPadding"] svg,
 header button svg {{
