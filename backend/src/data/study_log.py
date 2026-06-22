@@ -1,7 +1,10 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class StudyLog:
+    # T1: username added for multi-user support
+    username: str
     date: str
     sleep_hours: float
     study_hours: float

@@ -1,33 +1,60 @@
-
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 
-
+# Virtual Environments
 venv/
 .venv/
 env/
-ENV/
 
-
+# IDE
 .vscode/
 .idea/
 
+# Jupyter
 .ipynb_checkpoints/
 
-.env
-+
-artifacts/random_forest*
-artifacts/xgboost*
-artifacts/lightgbm*
-artifacts/catboost_tuned*
-
-*.log
-
+# OS
 .DS_Store
 Thumbs.db
 
-dist/
-build/
+# Logs
+*.log
 
-.streamlit/secrets.toml
+# Environment Variables
+.env
+
+# Model Artifacts
+artifacts/*.pkl
+artifacts/*.joblib
+artifacts/*.cbm
+
+# Training Outputs
+catboost_info/
+
+# Build
+build/
+dist/
+
+# Streamlit cache
+.streamlit/
+
+# Test cache
+.pytest_cache/
+
+tests/__pycache__/
+tests/test_data/*.csv
+tests/test_models/*.pkl
+tests/test_explainers/*.pkl
+tests/test_analytics
+tests/test_prediction
+
+# SQLite runtime database
+database/study_logs.db
+
+# Large generated datasets
+data/processed/*.csv
+
+# Keep synthetic training dataset
+!data/raw/study_logs.csv

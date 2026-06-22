@@ -1,209 +1,351 @@
-# StudyIntel
+# 🧠 StudyIntel
 
-Machine Learning-powered Study Intelligence Platform that helps students analyze study habits, discover productivity patterns, and predict future productivity using analytics and explainable machine learning.
+**AI-Powered Study Productivity Intelligence Platform**
 
----
+StudyIntel is an end-to-end Machine Learning and Analytics platform that helps students understand, track, and improve their study habits.
 
-## Overview
-
-StudyIntel is an end-to-end Data Analytics and Machine Learning project designed to help students understand how daily habits influence productivity.
-
-The platform combines:
-
-* Study Tracking
-* Learning Analytics
-* Productivity Prediction
-* Explainable AI (SHAP)
-* Habit Monitoring
-* Personalized Insights
+The system combines **data analytics**, **predictive machine learning**, and **explainable AI (SHAP)** to provide personalized productivity insights based on study behavior, wellness indicators, and learning patterns.
 
 ---
 
-## Features
+##  Features
 
-### Study Logging
+###  Productivity Prediction
 
-* Daily Study Tracking
-* Multi-Subject Study Entries
-* Input Validation System
-* SQLite Database Storage
-* CSV Data Export
+Predicts daily study productivity using a trained CatBoost regression model.
 
-### Analytics Engine
+###  Explainable AI (SHAP)
+
+Provides transparent explanations showing which factors increased or decreased productivity predictions.
+
+### 📊 Advanced Analytics Dashboard
 
 * Daily Analytics
 * Weekly Analytics
 * Monthly Analytics
-* Subject Analytics
 * Study Streak Tracking
-* Consistency Analysis
-* Productivity Trends
-* Habit Monitoring
+* Subject Performance Analysis
+* Historical Study Trends
 
-### Machine Learning
+### 👤 Multi-User Support
 
-* Productivity Score Prediction
-* Feature Engineering Pipeline
-* Model Benchmarking
-* Hyperparameter Optimization
-* Model Persistence
-* Inference Pipeline
-* SHAP Explainability
+Each user's data is stored independently using username-scoped SQLite storage.
+
+###  Subject Analytics
+
+Analyze:
+
+* Study hours by subject
+* Productivity by subject
+* Difficulty vs Productivity
+* Time allocation patterns
+
+###  Study Session Logging
+
+Track:
+
+* Study Hours
+* Sleep Hours
+* Screen Time
+* Exercise
+* Mood
+* Energy Levels
+* Task Difficulty
+* Goal Completion
+* Distractions
+* Study Sessions
+
+###  Interactive Frontend
+
+Built with Streamlit and Plotly for a responsive analytics experience.
 
 ---
 
-## Project Architecture
+#  System Architecture
 
 ```text
-User Input
-     ↓
-Validation Layer
-     ↓
-SQLite Database
-     ↓
-Analytics Engine
-     ↓
-Feature Engineering
-     ↓
-CatBoost Model
-     ↓
-Prediction & SHAP Insights
+┌──────────────────────────┐
+│      Streamlit UI        │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│   Input Validation Layer │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│ SQLite Database Storage  │
+│ (User-Scoped Logs)       │
+└────────────┬─────────────┘
+             │
+      ┌──────┴──────┐
+      ▼             ▼
+
+┌──────────────┐  ┌─────────────────┐
+│ Analytics    │  │ Feature         │
+│ Engine       │  │ Engineering     │
+└──────┬───────┘  └────────┬────────┘
+       │                   │
+       ▼                   ▼
+
+┌──────────────┐  ┌─────────────────┐
+│ Daily        │  │ Preprocessing   │
+│ Weekly       │  │ Pipeline        │
+│ Monthly      │  └────────┬────────┘
+│ Streaks      │           │
+└──────────────┘           ▼
+
+                 ┌─────────────────┐
+                 │ CatBoost Model  │
+                 └────────┬────────┘
+                          │
+                          ▼
+
+                 ┌─────────────────┐
+                 │ SHAP Explainer  │
+                 └────────┬────────┘
+                          │
+                          ▼
+
+                 ┌─────────────────┐
+                 │ User Insights   │
+                 └─────────────────┘
 ```
 
 ---
 
-## Current Progress
+#  Machine Learning Pipeline
 
-### Data Layer
-
-* Study Log Schema Design
-* Validation Rules
-* CSV Logging System
-* Data Loading Pipeline
-* SQLite Database Integration
-* CRUD Operations
-
-### Analytics Engine
-
-* Daily Analytics
-* Weekly Analytics
-* Monthly Analytics
-* Subject Analytics
-* Streak Analytics
-* Date Aggregation Utilities
-* Consistency Tracking
-
-### Machine Learning Pipeline
-
-* Exploratory Data Analysis (EDA)
-* Synthetic Dataset Generation (18,000+ Records)
-* Feature Engineering
-* Data Preprocessing
-* Train/Test Split
-* Model Benchmarking
-* Hyperparameter Optimization
-* Model Persistence
-* Prediction Pipeline
-* SHAP Explainability
-
----
-
-## Dataset Features
-
-### Raw Features
-
-| Feature             | Description                |
-| ------------------- | -------------------------- |
-| Date                | Study date                 |
-| Sleep Hours         | Hours slept                |
-| Study Hours         | Hours studied              |
-| Screen Time         | Daily screen usage         |
-| Exercise Minutes    | Exercise duration          |
-| Mood Score          | Self-reported mood         |
-| Energy Level        | Self-reported energy       |
-| Task Difficulty     | Perceived difficulty       |
-| Study Sessions      | Number of sessions         |
-| Distractions        | Number of distractions     |
-| Goal Completion     | Goal completion percentage |
-| Subject             | Subject studied            |
-| Productivity Rating | Target variable            |
-
----
-
-### Engineered Features
-
-* Study Efficiency
-* Distraction Rate
-* Screen-to-Study Ratio
-* Wellness Score
-* Goal Efficiency
-* Optimal Sleep Flag
-* Weekend Indicator
-* Exam Season Indicator
-* Day of Week
-* Month
-* Study-to-Sleep Ratio
-* Exercise-to-Study Ratio
-* Sessions per Hour
-* Average Session Length
-
----
-
-## Model Benchmarking
-
-| Model         | R² Score   | RMSE       |
-| ------------- | ---------- | ---------- |
-| Random Forest | 0.8753     | 0.5647     |
-| XGBoost       | 0.8786     | 0.5572     |
-| LightGBM      | 0.8796     | 0.5548     |
-| CatBoost      | **0.8879** | **0.5355** |
-
-### Selected Model
+## Model
 
 **CatBoost Regressor**
 
-Performance:
+Chosen after evaluating multiple models and hyperparameter tuning.
 
-* R² Score: **0.8879**
-* RMSE: **0.5355**
+Reasons:
 
-CatBoost achieved the strongest overall performance and was selected as the production model for StudyIntel v1.
-
-The production model uses CatBoost's native categorical feature handling and supports end-to-end inference without manual categorical encoding.
+* Excellent handling of tabular data
+* Native categorical feature support
+* Robust performance on unseen subjects
+* Strong explainability support
 
 ---
 
-## Explainable AI (SHAP)
+## Feature Engineering
 
-StudyIntel includes SHAP-based explainability to provide transparent productivity predictions.
+Generated Features:
 
-Features:
+| Feature                |
+| ---------------------- |
+| study_efficiency       |
+| distraction_rate       |
+| screen_study_ratio     |
+| wellness_score         |
+| optimal_sleep          |
+| goal_efficiency        |
+| study_sleep_ratio      |
+| exercise_study_ratio   |
+| sessions_per_hour      |
+| average_session_length |
+| day_of_week            |
+| month                  |
+| is_weekend             |
+| is_exam_season         |
 
-* Local Prediction Explanations
-* Feature Contribution Analysis
-* Positive Productivity Drivers
-* Negative Productivity Drivers
-* SHAP Validation Across Multiple Productivity Scenarios
+---
 
-Example Insights:
+## Explainability
+
+SHAP explanations identify:
+
+### Positive Contributors
+
+Examples:
+
+* High goal completion
+* Low distractions
+* Strong wellness score
+* Healthy study-to-screen ratio
+
+### Negative Contributors
+
+Examples:
+
+* Excessive screen time
+* Low energy levels
+* Poor sleep habits
+* High distraction rates
+
+---
+
+#  Analytics Modules
+
+## Daily Analytics
+
+* Daily productivity overview
+* Study statistics
+* Wellness indicators
+
+## Weekly Analytics
+
+* Weekly study hours
+* Weekly productivity trends
+* Consistency tracking
+
+## Monthly Analytics
+
+* Monthly breakdowns
+* Long-term performance tracking
+
+## Streak Tracking
+
+* Current streak
+* Longest streak
+* Study consistency analysis
+
+## Subject Analytics
+
+* Productivity by subject
+* Time allocation
+* Difficulty vs productivity
+* Subject-wise rankings
+
+---
+
+#  Database Design
+
+SQLite is used as the primary source of truth.
+
+### Study Logs Table
+
+| Column              | Type    |
+| ------------------- | ------- |
+| id                  | INTEGER |
+| username            | TEXT    |
+| date                | TEXT    |
+| sleep_hours         | REAL    |
+| study_hours         | REAL    |
+| screen_time         | REAL    |
+| exercise_minutes    | INTEGER |
+| mood_score          | INTEGER |
+| energy_level        | INTEGER |
+| task_difficulty     | INTEGER |
+| study_sessions      | INTEGER |
+| distractions        | INTEGER |
+| goal_completion     | REAL    |
+| subject             | TEXT    |
+| productivity_rating | REAL    |
+
+---
+
+#  Project Structure
 
 ```text
-Predicted Productivity: 7.61
+StudyIntel/
 
-Top Positive Factors
-+ Optimal Sleep
-+ Low Distractions
-+ Task Difficulty
-
-Top Negative Factors
-- Low Energy Level
-- Low Mood Score
-- Low Goal Completion
+├── frontend/
+│   └── streamlit_app.py
+│
+├── database/
+│   ├── db.py
+│   ├── crud.py
+│   ├── schema.py
+│   └── study_logs.db
+│
+├── src/
+│   ├── analytics/
+│   ├── data/
+│   ├── explainability/
+│   ├── features/
+│   ├── models/
+│   ├── preprocessing/
+│   ├── services/
+│   └── utils/
+│
+├── scripts/
+│   ├── build_dataset.py
+│   ├── gen_data.py
+│   └── migrate_db.py
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── tests/
+│
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## Technology Stack
+#  Backend Workflow
+
+```text
+User Input
+    │
+    ▼
+Validation
+    │
+    ▼
+SQLite Storage
+    │
+    ▼
+Fetch User History
+    │
+    ├── Analytics Engine
+    │
+    ▼
+Feature Engineering
+    │
+    ▼
+Preprocessing
+    │
+    ▼
+CatBoost Prediction
+    │
+    ▼
+SHAP Explanation
+    │
+    ▼
+Frontend Dashboard
+```
+
+---
+
+#  Testing
+
+The backend was validated through integration testing.
+
+Verified:
+
+✅ Data Validation
+
+✅ SQLite Storage
+
+✅ Analytics Generation
+
+✅ Feature Engineering
+
+✅ Preprocessing Pipeline
+
+✅ Prediction Pipeline
+
+✅ SHAP Explainability
+
+✅ Multi-User Isolation
+
+✅ Unseen Subject Handling
+
+Example unseen subjects successfully tested:
+
+* DSA
+* RTL Design
+
+---
+
+#  Tech Stack
 
 ### Backend
 
@@ -214,79 +356,44 @@ Top Negative Factors
 
 ### Machine Learning
 
-* Scikit-Learn
 * CatBoost
-* LightGBM
-* XGBoost
+* Scikit-Learn
 * SHAP
 
 ### Visualization
 
+* Plotly
 * Matplotlib
-* Seaborn
 
-### Frontend (Planned)
+### Frontend
 
 * Streamlit
 
----
+### Development
 
-## Dataset Notice
-
-StudyIntel v1 uses a synthetic dataset generated from realistic study-behavior patterns to design, validate, and benchmark the analytics and machine learning pipeline.
-
-Future versions will incorporate real user study logs collected through the platform, enabling periodic retraining and improved prediction quality.
+* Git
+* GitHub
 
 ---
 
-## Roadmap
+#  Future Improvements
 
-### Version 1.0
-
-* Analytics Dashboard
-* Productivity Prediction
-* SQLite Integration
-* SHAP Explainability
-* Streamlit Dashboard
-* Model Deployment
-
-### Version 1.1
-
-* Personalized Analytics
-* User History Tracking
-* Enhanced Dashboard Visualizations
-
-### Version 1.2
-
-* Productivity Classification Models
-* Goal Achievement Prediction
-* Burnout Risk Detection
-* Advanced Recommendation System
+* User Authentication
+* Cloud Database (PostgreSQL)
+* Automated Model Retraining
+* User Goal Recommendations
+* Personalized Study Plans
+* Study Forecasting
+* Mobile-Friendly Interface
+* FastAPI Deployment
 
 ---
 
-## Project Status
+#  Author
 
-**Current Phase:** Explainability & Dashboard Development 🚧
+**Smarth Sharma**
 
-### Completed
-
-* Data Pipeline
-* Database Layer
-* Analytics Engine
-* Feature Engineering
-* Model Benchmarking
-* CatBoost Model Selection
-* Model Persistence
-* Prediction Pipeline
-* SHAP Explainability Module
-
-### In Progress
-
-* SHAP Visualizations
-* Streamlit Dashboard
-* Deployment
 
 ---
 
-Built as a portfolio project focused on Data Analytics, Machine Learning Engineering, and Explainable AI.
+## ⭐ If you found this project interesting, consider starring the repository.

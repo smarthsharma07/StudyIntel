@@ -1,3 +1,9 @@
+"""
+DEPRECATED.
+
+StudyIntel now uses SQLite as the source of truth.
+This module is retained for reference only.
+"""
 import csv
 from pathlib import Path
 from dataclasses import asdict
