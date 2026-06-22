@@ -97,8 +97,9 @@ def _dark_overrides(c: dict) -> str:
 
 /* Header bar */
 [data-testid="stHeader"] {{
-    background-color: {c['bg']} !important;
-    border-bottom: 1px solid {c['border']} !important;
+    background-color: transparent !important;
+    background: transparent !important;
+    border-bottom: none !important;
 }}
 
 /* Sidebar */
@@ -334,10 +335,37 @@ html, body, [class*="css"] {{
     background-color: {c['app_bg']};
 }}
 
-/* Hide Streamlit Toolbar, MainMenu, Header and Footer */
-#MainMenu, header, footer, [data-testid="stHeader"], [data-testid="stToolbar"], .stAppDeployButton, #GithubIcon {{
+/* Hide Streamlit Toolbar, MainMenu, Footer, Deploy button, and Github icon */
+#MainMenu, footer, [data-testid="stToolbar"], .stAppDeployButton, #GithubIcon {{
     visibility: hidden !important;
     display: none !important;
+}}
+
+/* Style the Streamlit Header to be transparent and non-blocking */
+[data-testid="stHeader"], header {{
+    background-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+    pointer-events: none !important;
+}}
+
+/* Ensure the sidebar collapse/expand toggle button is visible and clickable */
+[data-testid="stSidebarCollapseButton"],
+[data-testid="stBaseButton-headerNoPadding"],
+[data-testid="baseButton-header"],
+header button {{
+    visibility: visible !important;
+    display: inline-flex !important;
+    pointer-events: auto !important;
+}}
+
+/* Ensure toggle button icon matches theme color */
+[data-testid="stSidebarCollapseButton"] svg,
+[data-testid="stBaseButton-headerNoPadding"] svg,
+header button svg {{
+    fill: {c['text']} !important;
+    color: {c['text']} !important;
 }}
 
 section[data-testid="stSidebar"] {{
