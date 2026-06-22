@@ -333,6 +333,13 @@ html, body, [class*="css"] {{
 .stApp {{
     background-color: {c['app_bg']};
 }}
+
+/* Hide Streamlit Toolbar, MainMenu, Header and Footer */
+#MainMenu, header, footer, [data-testid="stHeader"], [data-testid="stToolbar"], .stAppDeployButton, #GithubIcon {{
+    visibility: hidden !important;
+    display: none !important;
+}}
+
 section[data-testid="stSidebar"] {{
     background-color: {c['sidebar_bg']} !important;
     border-right: 1px solid {c['border']};
