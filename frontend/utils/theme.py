@@ -68,7 +68,8 @@ DARK = {
 def get_theme_colors():
     if st.session_state.get("theme", "light") == "dark":
         return DARK
-    return LIGHT
+    else:
+        return LIGHT
 
 
 def _dark_overrides(c: dict) -> str:
