@@ -158,7 +158,8 @@ with cl:
     ]:
         fig_well.add_trace(go.Scatter(
             x=w["date"], y=w[col_name], name=label,
-            mode="lines", line=dict(color=clr, width=2.2, shape="spline", smoothing=0.7),
+            mode="lines+markers", line=dict(color=clr, width=2.2, shape="spline", smoothing=0.7),
+            marker=dict(size=6, color=clr),
             fill="tozeroy",
             fillcolor=hex_to_rgba(clr, 0.08),
         ))

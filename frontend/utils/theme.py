@@ -659,6 +659,19 @@ def render_theme_toggle():
         st.rerun()
 
 
+def render_privacy_notice():
+    c = get_theme_colors()
+    st.markdown(f"""
+    <div style="font-size:0.75rem; color:{c['text_muted']}; margin-top:2rem; padding:1rem; border-top:1px solid {c['border']};">
+        <b style="color:{c['text']};">Privacy Notice & TnC</b><br>
+        StudyIntel stores study logs and analytics data entered by users to provide productivity predictions, analytics, and personalized insights.<br><br>
+        Data is stored locally within the application database and is not sold, shared, or used for advertising purposes.<br><br>
+        This project is intended for educational and portfolio purposes.<br><br>
+        Please avoid entering sensitive personal information.
+    </div>
+    """, unsafe_allow_html=True)
+
+
 def score_color(c: dict, val: float) -> str:
     if val >= 7.5: return c["mint"]
     if val >= 5.0: return c["amber"]

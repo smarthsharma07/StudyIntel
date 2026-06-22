@@ -26,7 +26,7 @@ if "theme"       not in st.session_state: st.session_state.theme       = "light"
 if "username"    not in st.session_state: st.session_state.username    = None
 if "splash_done" not in st.session_state: st.session_state.splash_done = False
 
-from utils.theme import inject_css, get_theme_colors, render_theme_toggle
+from utils.theme import inject_css, get_theme_colors, render_theme_toggle, render_privacy_notice
 inject_css()
 c = get_theme_colors()
 
@@ -123,6 +123,8 @@ if st.session_state.username is None:
         render_theme_toggle()
         st.markdown("</div>", unsafe_allow_html=True)
 
+        render_privacy_notice()
+
     st.stop()
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -158,6 +160,8 @@ with st.sidebar:
     if st.button("🚪  Sign Out", use_container_width=True, key="signout_btn"):
         st.session_state.username = None
         st.rerun()
+    
+    render_privacy_notice()
 
 # ═════════════════════════════════════════════════════════════════════════════
 # HOME CONTENT
